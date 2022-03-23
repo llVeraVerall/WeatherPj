@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  background: linear-gradient(
+    0deg,
+    rgb(172, 136, 216) 16%,
+    rgb(255, 254, 203) 87%
+  );
+}
+
+.title {
+  font-size: 30px;
+  color: #8399b3;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  margin: 10px;
+  padding: 5px;
+  .button {
+    border: none;
+    outline: none;
+    width: 150px;
+    height: 20px;
+    cursor: pointer;
+    background-color: rgb(220, 208, 233);
+    color: #8399b3;
+  }
+  .input {
+    border: none;
+    background-color: rgb(233, 233, 208);
+    width: 150px;
+    height: 15px;
+    margin-right: 10px;
+  }
+}
