@@ -4,7 +4,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 const API_KEY = "0436e293a6c33ea78bc300f56aa63242";
 
 export const WeatherData = () => {
-
+const [isLoading, setLoading] = useState(false)
 	const [data, setData] = useState(null);
 
 	 useEffect(() => {
@@ -28,14 +28,16 @@ const chartData = data.list.map (item => {
 		}
 	});
 	setData(chartData);
+  setLoading(false);
  }
 fetchData();
 }, []);
 
 	return(
 		<div className='chart'>
-			   {/* {isLoading ?
-        <div>loading...</div> : */}
+			   {isLoading ? (
+        <div>loading...</div>
+           )  : (
  <ResponsiveContainer width="100%" aspect={3}>
         <LineChart
           width={500}
@@ -56,10 +58,9 @@ fetchData();
           <Line type="monotone" dataKey="tempMin" stroke="#6b68a7" strokeWidth={3} fill="#8884d8"/>
           <Line type="monotone" dataKey="tempMax" stroke="#ccc"  strokeWidth={3}/>
 		  <Line type="monotone" dataKey="clouds" stroke="#e1d767"  strokeWidth={3}/>
-		  {/* <Line type="monotone" dataKey="dt" stroke="#82ca44" /> */}
         </LineChart>
         </ResponsiveContainer>
-		{/* } */}
+            ) }
 		</div>
 	)
 };
